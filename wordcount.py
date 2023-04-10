@@ -19,7 +19,7 @@ def normalize_words_list(words_list):
         word = word.lower()
         # strip punctuation
         for ch in word:
-            if ch in punc:
+            if not ch.isalpha():
                 word = word.replace(ch, "")
         normalized_list.append(word)
     
