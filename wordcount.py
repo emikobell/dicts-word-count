@@ -13,7 +13,6 @@ def parse_words_in_file(input_file):
     return words_list
 
 def normalize_words_list(words_list):
-    punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
     normalized_list = []
     for word in words_list:
         word = word.lower()
