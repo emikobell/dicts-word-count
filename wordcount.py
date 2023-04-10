@@ -12,7 +12,20 @@ def parse_words_in_file(input_file):
         
     return words_list
 
-# print(parse_words_in_file(sys.argv[1]))
+def normalize_words_list(words_list):
+    punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    normalized_list = []
+    for word in words_list:
+        word = word.lower()
+        # strip punctuation
+        for ch in word:
+            if ch in punc:
+                word = word.replace(ch, "")
+        normalized_list.append(word)
+    
+    return normalized_list
+        
+
 
 def count_words_in_list(words_list):
     words_in_file = {}
@@ -32,5 +45,6 @@ def print_word_report(word_dictionary):
 # word_dictionary = count_words_in_file('test.txt')
 
 words_list = parse_words_in_file(sys.argv[1])
-word_dictionary = count_words_in_list(words_list)
+normalized_list = normalize_words_list(words_list)
+word_dictionary = count_words_in_list(normalized_list)
 print_word_report(word_dictionary)
