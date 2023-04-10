@@ -1,7 +1,8 @@
-"""Count words in file."""
 
+import sys
 
 def count_words_in_file(input_file):
+    """Count words in file."""
     words_file = open(input_file)
     words_in_file = {}
 
@@ -17,6 +18,7 @@ def print_word_report(word_dictionary):
         print(word, count)
 
 
-word_dictionary = count_words_in_file('twain.txt')
+word_dictionary = count_words_in_file(sys.argv[1])
+# word_dictionary = count_words_in_file('twain.txt')
 # word_dictionary = count_words_in_file('test.txt')
 print_word_report(word_dictionary)
